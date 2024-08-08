@@ -1,7 +1,12 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:shoplon/screens/onboarding/onboarding_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(  DevicePreview(
+    enabled: true,
+    builder: (context) => const MyApp(), // Wrap your app
+  ),);
 }
 
 class MyApp extends StatelessWidget {
@@ -10,10 +15,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return  MaterialApp(
       title: 'shoplon',
-      
-      //home: const (),
+      debugShowCheckedModeBanner: false,
+       useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      home:const  OnboardingScreen(),
     );
   }
 }
