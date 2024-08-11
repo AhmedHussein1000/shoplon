@@ -9,6 +9,7 @@ class OnboardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     return const  Scaffold(
+      extendBodyBehindAppBar: true,
       body: SafeArea(
           child: Padding(
             padding:  EdgeInsets.symmetric( horizontal:  16.0),
